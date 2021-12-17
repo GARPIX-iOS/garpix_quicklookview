@@ -17,7 +17,27 @@
 При обновлении утилит, можно воспользоваться `File -> Swift Packages -> Update to Latest packages versions`
 
 # 🔷 Documentation
+## ВАЖНО!!!
+Вы должны использовать локальный URL файла, а не удаленный на сервере. Для этого Вам нужно сохранить файл в FileManager.default.urls(for: .documentDirectory, in: .userDomainMask) 
 
+``` swift
+struct ContentView: View {
+    @State private var showQuickLook: Bool = false
+    @State private var previewURL: URL? = *local url from FileManager*
+    
+    var body: some View {
+        Button("Show file in QuickLook") {
+            showQuickLook.toggle()
+        }
+        .padding()
+        .fullScreenCover(isPresented: $showQuickLook) {
+            GXQuickLookView(url: $previewURL, isPresented: $showQuickLook)
+        }
+    }
+}
+```
+
+![example](./example.PNG)
 
 
 # 🔷 Contributing
