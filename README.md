@@ -37,7 +37,7 @@ struct ContentView: View {
 }
 ```
 
-![example](./example.PNG)
+![example](./example.jpeg)
 
 
 # 🔷 Contributing
